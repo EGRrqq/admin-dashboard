@@ -1,11 +1,12 @@
 :root {
     --accent-color: #0284c7;
+    --onfocus-color: #242222;
 }
 
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-    bottom: 0;
+    border: 0;
 }
 
 body {
@@ -25,7 +26,7 @@ aside {
     grid-area: aside;
     display: flex;
     flex-direction: column;
-    gap: calc(2rem + 0.5vh);
+    gap: calc(3rem + 0.5vh);
     background-color: var(--accent-color);
     color: white;
     padding: clamp(1rem, calc(1.5rem + 1vw), 3vw);
@@ -35,13 +36,13 @@ aside {
 aside ul {
     display: flex;
     flex-direction: column;
-    gap: calc(2rem + 0.5vh);
+    gap: calc(3rem + 0.5vh);
 }
 
 aside ul > section {
     display: flex;
     flex-direction: column;
-    gap: calc(0.5rem + 0.5vw);
+    gap: calc(1rem + 0.5vw);
 }
 
 li {
@@ -55,10 +56,19 @@ a {
 }
 
 a:hover {
-    background-color: red;
-    box-shadow:
-        100px 100px 80px -85px rgba(255, 0, 0, 1) ;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.10);
 }
+
+a:focus {
+    outline: none;
+}
+
+li:focus-within {
+    border-radius: 0.5rem;
+    outline: 2px solid var(--onfocus-color);
+    outline-offset: 0.5rem;
+}
+
 
 header {
     grid-area: header;
