@@ -1,2 +1,2 @@
 # admin-dashboard
-vim motion practice
+vim motion and css grid practice
