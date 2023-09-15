@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
 :root {
     --accent-color: #0284c7;
+    --accent-second-color: #f9bf39;
     --onfocus-color: #242222;
-    --bg-color-light: #fff1f1;
 
     --font-bg-color: #f7f7f7;
     --bg-second: #dde1ea;
@@ -11,6 +13,7 @@
     --section-item-gap: calc(1rem + 0.5vw);
 
     --btn-min-w: calc(5rem + 1vw);
+    --outer-shadow-xl: 4px 4px 10px rgba(0, 0, 0, 0.10);
 }
 
 *, *::before, *::after {
@@ -24,13 +27,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-areas: 
-        "aside header header"
-        "aside main main";
+    "aside header header"
+    "aside main main";
     font-family: 'Roboto', sans-serif;
-}
-
-aside, header, main {
-    border: 1px solid red;
+    font-weight: 700;
 }
 
 aside {
@@ -45,9 +45,17 @@ aside {
     font-size: calc(0.5rem + 1vw);
 }
 
- h1 {
+h1, h2, h3, h4 {
+    text-transform: capitalize;
+}
+
+h1 {
     position: sticky;
     top: calc(var(--section-padding) + 0.5rem) 
+}
+
+p {
+    font-weight: 300;
 }
 
 nav {
@@ -79,7 +87,7 @@ a {
 }
 
 a:hover {
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.10);
+    text-shadow: var(--outer-shadow-xl);
 }
 
 a:focus {
@@ -98,6 +106,8 @@ header {
     flex-direction: column;
     padding: var(--section-padding);
     gap: var(--section-gap);
+    box-shadow: var(--outer-shadow-xl);
+    z-index: 1;
 }
 
 input, .button {
@@ -137,8 +147,26 @@ header > section {
     text-transform: capitalize;
 }
 
+object {
+    pointer-events: none;
+}
+
+.icon-button {
+    display: flex;
+    background-color: inherit;
+    font-family: 'Arial Unicode MS', sans-serif;
+}
+
+.icon-button:hover {
+    text-shadow: var(--outer-shadow-xl);
+}
+
 .large {
     min-width: calc(5rem + 1vw);
+}
+
+.small {
+    min-width: calc(1rem + 1vw);
 }
 
 .filled {
@@ -156,7 +184,7 @@ header > section {
     }
 }
 
-.header-bottom button:focus {
+.button:focus {
     outline: 2px solid var(--onfocus-color);
 }
 
@@ -172,10 +200,6 @@ main {
     padding: var(--section-padding);
     gap: var(--section-gap);
     background-color: var(--bg-second);
-}
-
-main article {
-    border: 1px solid blue;
 }
 
 .article-wrapper > article {
@@ -199,8 +223,9 @@ main article {
 }
 
 .right-side {
+    --temp: calc(2rem + 0.5vh);
     display: grid;
-    gap:1rem;
+    gap: calc(2rem + 0.5vh);
     grid-column: span 2;
 
     align-items: stretch;
@@ -220,5 +245,28 @@ svg {
     border-radius: 50%;
     width: 5rem;
     height: 5rem;
+}
+
+.card {
+    background-color: var(--font-bg-color);
+    padding: var(--section-padding);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-item-gap);
+
+    border-radius: 0.5rem;
+    box-shadow:
+    0.8px 0.9px 0.9px rgba(0, 0, 0, 0.035),
+    6px 7px 7px rgba(0, 0, 0, 0.07);
+
+    border-left: 0.5rem solid var(--accent-second-color);
+}
+
+.card > section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: calc(0.5rem + 0.5vw);
 }
 
