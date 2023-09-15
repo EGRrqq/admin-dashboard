@@ -115,20 +115,37 @@ header {
     z-index: 1;
 }
 
-input, .button {
+ input, .left-input-icon, .button {
     padding: 0.5rem;
     border-radius: 0.75rem;
     outline: none;
 }
 
-input {
+.input-container {
     background-color: var(--bg-second);
+    border-radius: 0.75rem;
     border: 2px solid var(--onfocus-color);
+    display: flex;
     flex: 1;
 }
 
-input:focus {
+.left-input-icon {
+    justify-self: center;
+    align-self: center;
+    border-right: 2px solid var(--onfocus-color);
+}
+
+.input {
+    background-color: inherit;
+    flex: 1;
+}
+
+.input-container:focus-within {
     border: 2px solid var(--accent-color);
+}
+
+.input-container:focus-within .left-input-icon {
+  border-right-color: var(--accent-color);
 }
 
 header > section {
@@ -150,6 +167,7 @@ header > section {
     font-size: calc(0.75rem + 0.5vw);
     cursor: pointer;
     text-transform: capitalize;
+    font-weight: 700;
 }
 
 object {
