@@ -148,18 +148,49 @@ header {
   border-right-color: var(--accent-color);
 }
 
-header > section {
-    display: flex;
-}
-
 .header-top {
+    display: flex;
     align-items: center;
     gap: calc(var(--section-item-gap) + 10vw);
 }
 
+.header-top > section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: calc(1rem + 1vw);
+}
+
+.header-top .material-symbols-outlined {
+    font-variation-settings:
+    'wght' 700,
+    'opsz' 40
+}
+
 .header-bottom {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: var(--section-item-gap);
+}
+
+.header-bottom > section {
+    display: flex;
+    gap: var(--section-item-gap);
+}
+
+.greeting-section {
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.greeting-section img {
+    max-height: clamp(calc(4rem + 1vh), 8vh, 128px);
+}
+
+.btn-section {
+    flex-wrap: wrap;
 }
 
 .button {
@@ -261,6 +292,12 @@ main {
 .right-side > section {
     display: grid;
     grid-column: span 2
+}
+
+img {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    max-height: clamp(calc(3rem + 1vh), 6vh, 128px);
 }
 
 svg {
